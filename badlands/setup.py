@@ -22,9 +22,8 @@ with io.open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 sys_includes = []
 subprocess.call(["make", "-C", "utils"])
-sys_includes += glob.glob("utils/*.o")
-sys_includes += glob.glob("utils/*.so")
-sys_includes += glob.glob("utils/*.mod")
+subprocess.call(["dir", "utils"])
+sys_includes += glob.glob("utils/*")
 
 # interface for fortran code
 ext1 = Extension(
